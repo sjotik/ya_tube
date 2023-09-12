@@ -1,0 +1,23 @@
+{% load static %}
+<div class="container px-4 px-lg-5">
+  <a class="navbar-brand" href="{% url 'posts:index' %}"><img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt=""> <span style="color:red">Ya</span>tube</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto py-4 py-lg-0">
+        {% for m in menu %}
+  {% if m.title == 'Пользователь' %}
+    <li class="nav-item">
+      <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url m.url_name username %}"><U>{{ username }}</U></a>
+    </li>
+  {% else %}
+    <li class="nav-item"> 
+      <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url m.url_name %}">{{ m.title }}</a>
+    </li>
+  {% endif %}
+{% endfor %}
+      </ul>
+  </div>
+</div>

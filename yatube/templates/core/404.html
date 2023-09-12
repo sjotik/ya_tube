@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Страница не найдена{% endblock %}
+{% block content %}
+  <body>
+    <div class="d-flex align-items-center justify-content-center vh-100 py-5">
+        <div class="text-center">
+            <h1 class="display-1 fw-bold">404</h1>
+            <p class="fs-3"> <span class="text-danger"><b>Опаньки!</b></span> Страничка не найдена =(</p>
+            <p class="lead">
+              Страницы с адресом <span style='color:Chocolate'>{{ path }}</span> не существует
+            </p>
+            <a href={% url 'posts:index' %} class="btn btn-primary">На главную</a>
+        </div>
+    </div>
+  </body>
+{% endblock %}
